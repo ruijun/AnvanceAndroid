@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".handler.ThreadLocalActivity">
+
+    <com.ruijun.anvanceandroid.customview.MyView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#ff0000"/>
+
+    <com.ruijun.anvanceandroid.customview.FlowTagLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="Welcome"
+            android:width="100dp"
+            android:layout_height="30dp"/>
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="IT工程师" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="学习ing" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="挣钱ing" />
+
+        <TextView
+            style="@style/text_flag_01"
+            android:text="努力ing" />
+
+    </com.ruijun.anvanceandroid.customview.FlowTagLayout>
+
+</LinearLayout>
