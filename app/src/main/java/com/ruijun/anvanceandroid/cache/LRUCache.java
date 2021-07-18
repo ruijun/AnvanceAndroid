@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * LRUCache
+ * LRUCache 最近最少使用
  *
  * @author ruijun
  * @date 2021/7/169:10 PM
  */
 class LRUCache<K, V> {
     /**
-     * 双链表的元素节点
+     * 双向链表的元素节点
      */
     private class Entry<K, V> {
         Entry<K, V> before;
