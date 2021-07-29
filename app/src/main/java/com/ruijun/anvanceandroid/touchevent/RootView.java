@@ -32,7 +32,7 @@ public class RootView extends RelativeLayout {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             Log.i(TAG, Static.dispatchTouchEvent + "技术部,你们的app快做完了么?");
         }
-        return super.dispatchTouchEvent(ev);
+        return true;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class RootView extends RelativeLayout {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             Log.i(TAG, Static.onInterceptTouchEvent);
         }
-        return super.onInterceptTouchEvent(ev);
+        return false;
     }
 
     @Override
@@ -48,6 +48,6 @@ public class RootView extends RelativeLayout {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             Log.i(TAG, Static.onTouchEvent);
         }
-        return super.onTouchEvent(event);
+        return false;
     }
 }

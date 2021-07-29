@@ -18,7 +18,9 @@ import com.ruijun.anvanceandroid.inflater.LazyLayoutInflaterActivity;
 import com.ruijun.anvanceandroid.oom.OOMActivity;
 import com.ruijun.anvanceandroid.touchevent.DispatchTouchEventActivity;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +33,10 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    public static final String ENTER_STR = "\n";
+    public static String[] cmdArray = {"ps", "-AT"};          // 查线程id
+
+
     private Button mBtnHandler;
     private Button mBtnThreadLocal;
     private Button mBtnOOM;
@@ -141,6 +147,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         },200);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                readThreadInfo();
+            }
+        }).start();
     }
 
     @Override
@@ -210,6 +223,44 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Log.d(TAG, "testOkHttp: " + request.url().host());
+
+
+    }
+
+    /**
+     * 获取线程id 、name
+     *
+     * @return
+     */
+    public static String readThreadInfo() {
+        BufferedReader bufferedReader = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        int threads = 0;
+        try {
+            Process process = Runtime.getRuntime().exec(cmdArray);
+            bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                stringBuilder.append(line);
+                stringBuilder.append(ENTER_STR);
+                ++threads;
+                line = bufferedReader.readLine();
+            }
+            stringBuilder.append(ENTER_STR);
+        } catch (Exception e) {
+            Log.e(TAG, "readThreadInfo ", e);
+        } finally {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        Log.e(TAG, " threads = " + threads);
+        Log.e(TAG, " threadInfo = " + stringBuilder.toString());
+        return stringBuilder.toString();
 
     }
 }
