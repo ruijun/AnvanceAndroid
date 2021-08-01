@@ -8,7 +8,7 @@ import android.util.Printer;
 
 /**
  * HandlerBlockTask
- *
+ * @link https://zhuanlan.zhihu.com/p/119293585
  * @author rj-liang
  * @date 2021/7/15 17:58
  */

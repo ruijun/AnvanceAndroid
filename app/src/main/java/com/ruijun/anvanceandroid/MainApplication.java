@@ -15,9 +15,12 @@ import androidx.lifecycle.ProcessLifecycleOwner;
  */
 public class MainApplication extends Application {
 
+    private static Application mContext;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = this;
         ProcessLifecycleOwner.get().getLifecycle().addObserver(new LifecycleChecker());
     }
 
@@ -25,4 +28,9 @@ public class MainApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
     }
+
+    public static Application getContext() {
+        return mContext;
+    }
+
 }
