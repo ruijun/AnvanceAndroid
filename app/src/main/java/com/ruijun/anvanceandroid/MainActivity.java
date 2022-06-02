@@ -15,6 +15,7 @@ import com.ruijun.anvanceandroid.handler.HandlerActivity;
 import com.ruijun.anvanceandroid.handler.ThreadLocalActivity;
 import com.ruijun.anvanceandroid.hook.HookActivity;
 import com.ruijun.anvanceandroid.inflater.LazyLayoutInflaterActivity;
+import com.ruijun.anvanceandroid.kt.CoroutineActivity;
 import com.ruijun.anvanceandroid.oom.OOMActivity;
 import com.ruijun.anvanceandroid.touchevent.DispatchTouchEventActivity;
 
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnInflater;
     private Button mBtnDispatchEvent;
     private Button mBtnHookActivity;
+    private Button mBtnKtActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnInflater = findViewById(R.id.btn_inflater);
         mBtnDispatchEvent = findViewById(R.id.btn_dispatch_event);
         mBtnHookActivity = findViewById(R.id.btn_hook_activity);
+        mBtnKtActivity = findViewById(R.id.btn_kt_activity);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -137,6 +140,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mBtnKtActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CoroutineActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Log.d(TAG, "onCreate: ");
 
 //        testOkHttp();

@@ -13,18 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AnvanceAndroid">
+        <activity
+            android:name=".kt.CoroutineActivity"
+            android:exported="false" />
         <activity android:name=".touchevent.DispatchTouchEventActivity" />
         <activity android:name=".inflater.LazyLayoutInflaterActivity" />
         <activity android:name=".oom.OOMActivity" />
-        <activity android:name=".handler.ThreadLocalActivity"
+        <activity
+            android:name=".handler.ThreadLocalActivity"
             android:launchMode="singleTask"
-            android:taskAffinity="com.ruijun.app.task.other2">
-
-
-
-        </activity>
+            android:taskAffinity="com.ruijun.app.task.other2"></activity>
         <activity android:name=".handler.HandlerActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

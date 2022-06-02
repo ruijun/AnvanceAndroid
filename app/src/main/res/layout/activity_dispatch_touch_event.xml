@@ -21,10 +21,10 @@
     </com.ruijun.anvanceandroid.touchevent.ViewGroupA>
 
     <com.ruijun.anvanceandroid.touchevent.View2
-        android:layout_alignParentRight="true"
-        android:background="#BDDA66"
         android:layout_width="80dp"
-        android:layout_height="80dp"/>
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:background="#BDDA66" />
 
 
 </com.ruijun.anvanceandroid.touchevent.RootView>
